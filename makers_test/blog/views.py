@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404                 #to chto vozvrashaet HTML
+from django.views.generic import ListView
 
 from .models import Post, Category
 from .forms import AddPostForm, UpdatePostForm
@@ -10,6 +11,7 @@ from .forms import AddPostForm, UpdatePostForm
 def categories_list(request):
     categories = Category.objects.all()
     return render(request, 'blog/index.html', {'categories_list': categories})
+
 
 
 def posts_list(request):
